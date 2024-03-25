@@ -1,0 +1,28 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=110.238.105.190,1434;Database=myPOS_DB_SL;User Id=pll;Password=myposadminauthentication;"
+  },
+  "SmtpSettings": {
+    "SmtpServer": "smtp.office365.com"
+  },
+  "EmailConfiguration": {
+    "SenderEmail": "retail.workflow@cargillsceylon.com",
+    "SenderPassword": "C@R9$reTA!"
+  },
+  "EmailTemplates": {
+    "TransactionTemplate": "Dear Sir/Madam,\nI trust this message finds you well. Attached is the {menuCode} report for ID {id} (Type: {trType}).\nThank You.",
+    "PermissionTemplate": "Dear Sir/Madam,\nI hope this email finds you well. I'm writing to request permission for {menuCode} report for ID {id} (Type: {trType}). Attached are the relevant documents. Go through the link below and give permission. Your prompt approval would be highly appreciated. URL- {url}\nThank You."
+  },
+  "LogfilePath": {
+    "logfilepath": "D:\\Development\\MailAppNew\\Log\\"
+  },
+  "RepGenDatabaseConfiguration": {
+    "repodatabasename": "myPOS_DB_SL"
+  },
+  "RepoGenPath": {
+    "reportgeneratorpath": "D:\\Development\\MailAppNew\\ReportGen\\ReportGenerator.exe"
+  },
+  "AppSettings": {
+    "PdfFullPath": "D:\\Development\\MailAppNew\\GeneratedFiles\\"
+  }
+}
