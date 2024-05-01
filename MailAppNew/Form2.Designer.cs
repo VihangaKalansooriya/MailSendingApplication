@@ -135,6 +135,7 @@
             RB_01.TabStop = true;
             RB_01.Text = "Send";
             RB_01.UseVisualStyleBackColor = true;
+            RB_01.CheckedChanged += RB_01_CheckedChanged;
             // 
             // RB_02
             // 
@@ -148,13 +149,15 @@
             RB_02.TabStop = true;
             RB_02.Text = "Unsend";
             RB_02.UseVisualStyleBackColor = true;
+            RB_02.CheckedChanged += RB_02_CheckedChanged;
             // 
             // txt_Search
             // 
             txt_Search.BorderStyle = BorderStyle.None;
+            txt_Search.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             txt_Search.Location = new Point(535, 123);
             txt_Search.Name = "txt_Search";
-            txt_Search.Size = new Size(280, 16);
+            txt_Search.Size = new Size(280, 17);
             txt_Search.TabIndex = 9;
             // 
             // LBL_copyright

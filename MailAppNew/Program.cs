@@ -9,6 +9,14 @@ using Serilog;
 using MailSendingApp;
 using Serilog.Core;
 using static System.Windows.Forms.DataFormats;
+
+//***************************************************************************
+// File: Email Sending Application UI
+// Author: Vihanga Kalansooriya
+// Date: March 26, 2024
+// Contact: techsupport.02@24x7retail.com
+//***************************************************************************
+
 namespace MailAppNew
 {
     internal static class Program

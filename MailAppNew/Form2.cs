@@ -25,9 +25,11 @@ namespace MailAppNew
         {
             InitializeComponent();
             InitializeButtonDesign();
-            LoadDataIntoDataGridView();
             mailAppInstance = new mailapp();
-            dateTimePicker1.MaxDate = DateTime.Now;
+            dateTimePicker1.MaxDate = DateTime.Now.Date;
+            dateTimePicker1.Value = DateTime.Now.Date;
+            RB_01.Checked = true;
+            FilterData();
             InitializeInternetConnectionTimer();
         }
         private void Timer_Tick(object sender, EventArgs e)
@@ -55,7 +57,7 @@ namespace MailAppNew
                 {
                     connection.Open();
 
-                    string query = "SELECT TB_ID, TB_RECEIVERMAIL, TB_LOCATION, TB_DESC, TB_RUNNO FROM M_TBLMAILDETAILS WHERE TB_STATUS=0";
+                    string query = "SELECT TB_ID, TB_RECEIVERMAIL, TB_LOCATION, TB_DESC, TB_RUNNO FROM M_TBLMAILDETAILS WHERE TB_STATUS=1";
 
                     using (SqlCommand cmd = new SqlCommand(query, connection))
                     {
@@ -63,9 +65,20 @@ namespace MailAppNew
                         {
                             DataTable dataTable = new DataTable();
                             adapter.Fill(dataTable);
-                            dataGridView1.AllowUserToAddRows = false;
-                            dataGridView1.ReadOnly = true;
                             dataGridView1.DataSource = dataTable;
+                            DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn
+                            {
+                                HeaderText = "Select",
+                                Name = "Select",
+                            };
+
+                            foreach (DataGridViewColumn column in dataGridView1.Columns)
+                            {
+                                if (column.Name != "Select")
+                                {
+                                    column.ReadOnly = true;
+                                }
+                            }
                         }
                     }
                 }
@@ -130,41 +143,43 @@ namespace MailAppNew
 
         private void dateTimePicker1_ValueChanged_1(object sender, EventArgs e)
         {
-            DateTime selectedDate = dateTimePicker1.Value.Date;
+            //DateTime selectedDate = dateTimePicker1.Value.Date;
 
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(Globalconfig.ConnectionString))
-                {
-                    connection.Open();
+            //try
+            //{
+            //    using (SqlConnection connection = new SqlConnection(Globalconfig.ConnectionString))
+            //    {
+            //        connection.Open();
 
-                    string query = "SELECT TB_ID, TB_RECEIVERMAIL, TB_LOCATION, TB_DESC, TB_RUNNO " +
-                                   "FROM M_TBLMAILDETAILS " +
-                                   "WHERE CONVERT(DATE, TB_DATE) = @SelectedDate";
+            //        string query = "SELECT TB_ID, TB_RECEIVERMAIL, TB_LOCATION, TB_DESC, TB_RUNNO " +
+            //                       "FROM M_TBLMAILDETAILS " +
+            //                       "WHERE CONVERT(DATE, TB_DATE) = @SelectedDate";
 
-                    using (SqlCommand cmd = new SqlCommand(query, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@SelectedDate", selectedDate);
+            //        using (SqlCommand cmd = new SqlCommand(query, connection))
+            //        {
+            //            cmd.Parameters.AddWithValue("@SelectedDate", selectedDate);
+            //            //cmd.Parameters.AddWithValue("@Status", status);
 
-                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
-                        {
-                            DataTable dataTable = new DataTable();
-                            adapter.Fill(dataTable);
+            //            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+            //            {
+            //                DataTable dataTable = new DataTable();
+            //                adapter.Fill(dataTable);
 
-                            dataGridView1.DataSource = dataTable;
+            //                dataGridView1.DataSource = dataTable;
 
-                            if (dataGridView1.Columns["Select"] == null)
-                            {
-                                ConfigureColumnHeadersAndWidths();
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger.LogError("Unhandled exception in the application", ex);
-            }
+            //                if (dataGridView1.Columns["Select"] == null)
+            //                {
+            //                    ConfigureColumnHeadersAndWidths();
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Logger.LogError("Unhandled exception in the application DateTime Picker", ex);
+            //}
+            FilterData();
         }
 
         private void btn_DeselectAll_Click(object sender, EventArgs e)
@@ -182,14 +197,10 @@ namespace MailAppNew
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
             dateTimePicker1.Value = DateTime.Now.Date;
-            RB_01.Checked = false;
+            RB_01.Checked = true;
             RB_02.Checked = false;
             txt_Search.Text = string.Empty;
-            LoadDataIntoDataGridView();
-            //if (dataGridView1.Columns["Select"] == null)
-            //{
-            //    LoadDataIntoDataGridView();
-            //}
+            FilterData();
         }
 
         private async void btn_Send_Click(object sender, EventArgs e)
@@ -307,7 +318,7 @@ namespace MailAppNew
                 return false;
             }
         }
-        
+
         private void DisplayServerID()
         {
             try
@@ -347,10 +358,95 @@ namespace MailAppNew
 
             return "Server information not found in connection string";
         }
-        
+
         private void LBL_database_Click(object sender, EventArgs e)
         {
             DisplayServerID();
+        }
+
+        private void FilterData()
+        {
+            string searchText = txt_Search.Text.Trim();
+            int status = RB_01.Checked ? 1 : 0;
+            DateTime selectedDate = dateTimePicker1.Value.Date;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Globalconfig.ConnectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT TB_ID, TB_RECEIVERMAIL, TB_LOCATION, TB_DESC, TB_RUNNO " +
+                                   "FROM M_TBLMAILDETAILS " +
+                                   "WHERE TB_STATUS = @Status " +
+                                   "AND CONVERT(DATE, TB_DATE) = @SelectedDate " +
+                                   "AND TB_RECEIVERMAIL LIKE @SearchText";
+
+                    using (SqlCommand cmd = new SqlCommand(query, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@SearchText", "%" + searchText + "%");
+                        cmd.Parameters.AddWithValue("@Status", status);
+                        cmd.Parameters.AddWithValue("@SelectedDate", selectedDate);
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                        {
+                            DataTable dataTable = new DataTable();
+                            adapter.Fill(dataTable);
+                            dataGridView1.DataSource = dataTable;
+
+                            if (dataGridView1.Columns["Select"] == null)
+                            {
+                                // Add "Select" column
+                                DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn
+                                {
+                                    HeaderText = "Select",
+                                    Name = "Select",
+                                };
+                                dataGridView1.Columns.Insert(5, checkBoxColumn);
+                            }
+                        }
+                    }
+                }
+                DataGridViewCellStyle headerStyle = new DataGridViewCellStyle(dataGridView1.ColumnHeadersDefaultCellStyle);
+                headerStyle.Font = new Font("Arial", 8, FontStyle.Bold);
+                dataGridView1.ColumnHeadersDefaultCellStyle = headerStyle;
+
+                dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                dataGridView1.AllowUserToAddRows = false;
+
+                dataGridView1.Columns["TB_ID"].HeaderText = "ID";
+                dataGridView1.Columns["TB_RECEIVERMAIL"].HeaderText = "Receiver Email";
+                dataGridView1.Columns["TB_LOCATION"].HeaderText = "Location";
+                dataGridView1.Columns["TB_DESC"].HeaderText = "Type";
+                dataGridView1.Columns["TB_RUNNO"].HeaderText = "Report Number";
+
+                dataGridView1.Columns["TB_ID"].Width = 50;
+                dataGridView1.Columns["TB_RECEIVERMAIL"].Width = 200;
+                dataGridView1.Columns["TB_LOCATION"].Width = 100;
+                dataGridView1.Columns["TB_DESC"].Width = 200;
+                dataGridView1.Columns["TB_RUNNO"].Width = 120;
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError("Unhandled exception in the application", ex);
+            }
+        }
+
+        private void RB_01_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RB_01.Checked)
+            {
+                FilterData();
+            }
+        }
+
+        private void RB_02_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RB_02.Checked)
+            {
+                FilterData();
+            }
         }
     }
 }
