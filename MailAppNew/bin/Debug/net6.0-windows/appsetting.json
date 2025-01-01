@@ -1,13 +1,12 @@
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=122.255.48.186;Database=myPOS_DB_SPAR;User Id=pll;Password=myposadminauthentication;"
-  },
-  "SmtpSettings": {
-    "SmtpServer": "smtp.office365.com"
+    "DefaultConnection": "Server=mypossql.public.a9e8cba2fce4.database.windows.net,3342;Database=myPOS_DB_24x7;User Id=sqladminhng;Password=$qladm!nh^g#6473;"
   },
   "EmailConfiguration": {
-    "SenderEmail": "retail.workflow@cargillsceylon.com",
-    "SenderPassword": "C@R9$reTA!"
+    "SenderEmail": "techsupport.02@24x7retail.com",
+    "SenderPassword": "Vihanga@1997",
+    "SMTPclient": "smtp.office365.com",
+    "Port": "587"
   },
   "EmailTemplates": {
     "TransactionTemplate": "Dear Sir/Madam,\nI trust this message finds you well. Attached is the {menuCode} report for ID {id} (Type: {trType}).\nThank You.",
@@ -17,12 +16,22 @@
     "logfilepath": "D:\\Development\\MailAppNew\\Log\\"
   },
   "RepGenDatabaseConfiguration": {
-    "repodatabasename": "myPOS_DB_SL"
+    "repodatabasename": "myPOS_DB_24x7"
   },
   "RepoGenPath": {
-    "reportgeneratorpath": "D:\\Development\\MailAppNew\\ReportGen\\ReportGenerator.exe"
+    "reportgeneratorpath": "D:\\Development\\MailApp1\\ReportGenerator\\ReportGenerator.exe"
   },
   "AppSettings": {
-    "PdfFullPath": "D:\\Development\\MailAppNew\\GeneratedFiles\\"
+    "PdfFullPath": "D:\\Development\\MailApp1\\GeneratedFiles\\"
+  },
+  "DatabaseConfiguration": {
+    "databasename": "myPOS_DB_24x7"
+  },
+  "PDFfilePath": {
+    "AttachedFilePath": "C:\\PDF"
+  },
+  "EXCELfilePath": {
+    "AttachedEXFilePath": "D:\\Development\\Excel\\"
   }
 }
+

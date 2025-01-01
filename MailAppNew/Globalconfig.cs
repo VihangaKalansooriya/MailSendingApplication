@@ -9,7 +9,6 @@ namespace MailSendingApp
     internal static class Globalconfig
     {
         public static string ConnectionString { get; set; }
-        public static string SmtpServer { get; set; }
         public static string TransactionTemplate { get; set; }
         public static string PermissionTemplate { get; set; }
         public static string SenderEmail { get; set; }
@@ -18,6 +17,12 @@ namespace MailSendingApp
         public static string repodatabasename { get; set; }
         public static string reportgeneratorpath { get; set; }
         public static string PdfFullPath { get; set; }
+        public static string SMTPclient { get; set; }
+        public static int Port { get; set; }
+        public static string databasename { get; set; }
+        public static string AttachedFilePath { get; set; }
+        public static string AttachedEXFilePath { get; set; }
+        public static string ExcelTemplate { get; set; }
 
     }
 }

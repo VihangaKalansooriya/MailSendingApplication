@@ -232,11 +232,12 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(417, 122);
+            label2.Location = new Point(410, 122);
             label2.Name = "label2";
             label2.Size = new Size(101, 17);
             label2.TabIndex = 21;
-            label2.Text = "Reciever Email:";
+            label2.Text = "Receiver Email:";
+            label2.Click += label2_Click;
             // 
             // status
             // 

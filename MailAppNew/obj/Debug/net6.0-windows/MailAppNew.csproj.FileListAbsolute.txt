@@ -4,6 +4,11 @@ D:\Development\MailAppNew\MailAppNew\bin\Debug\net6.0-windows\MailAppNew.deps.js
 D:\Development\MailAppNew\MailAppNew\bin\Debug\net6.0-windows\MailAppNew.runtimeconfig.json
 D:\Development\MailAppNew\MailAppNew\bin\Debug\net6.0-windows\MailAppNew.dll
 D:\Development\MailAppNew\MailAppNew\bin\Debug\net6.0-windows\MailAppNew.pdb
+D:\Development\MailAppNew\MailAppNew\bin\Debug\net6.0-windows\ClosedXML.dll
+D:\Development\MailAppNew\MailAppNew\bin\Debug\net6.0-windows\ClosedXML.Parser.dll
+D:\Development\MailAppNew\MailAppNew\bin\Debug\net6.0-windows\DocumentFormat.OpenXml.dll
+D:\Development\MailAppNew\MailAppNew\bin\Debug\net6.0-windows\DocumentFormat.OpenXml.Framework.dll
+D:\Development\MailAppNew\MailAppNew\bin\Debug\net6.0-windows\ExcelNumberFormat.dll
 D:\Development\MailAppNew\MailAppNew\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.dll
 D:\Development\MailAppNew\MailAppNew\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
 D:\Development\MailAppNew\MailAppNew\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll
@@ -13,9 +18,12 @@ D:\Development\MailAppNew\MailAppNew\bin\Debug\net6.0-windows\Microsoft.Extensio
 D:\Development\MailAppNew\MailAppNew\bin\Debug\net6.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
 D:\Development\MailAppNew\MailAppNew\bin\Debug\net6.0-windows\Microsoft.Extensions.Primitives.dll
 D:\Development\MailAppNew\MailAppNew\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+D:\Development\MailAppNew\MailAppNew\bin\Debug\net6.0-windows\RBush.dll
 D:\Development\MailAppNew\MailAppNew\bin\Debug\net6.0-windows\Serilog.dll
 D:\Development\MailAppNew\MailAppNew\bin\Debug\net6.0-windows\Serilog.Sinks.File.dll
+D:\Development\MailAppNew\MailAppNew\bin\Debug\net6.0-windows\SixLabors.Fonts.dll
 D:\Development\MailAppNew\MailAppNew\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+D:\Development\MailAppNew\MailAppNew\bin\Debug\net6.0-windows\System.IO.Packaging.dll
 D:\Development\MailAppNew\MailAppNew\bin\Debug\net6.0-windows\System.Text.Encodings.Web.dll
 D:\Development\MailAppNew\MailAppNew\bin\Debug\net6.0-windows\System.Text.Json.dll
 D:\Development\MailAppNew\MailAppNew\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll

@@ -33,14 +33,19 @@ namespace MailAppNew
 
             Globalconfig.ConnectionString = config.GetConnectionString("DefaultConnection");
             Globalconfig.SenderEmail = config.GetSection("EmailConfiguration")["SenderEmail"];
-            Globalconfig.SmtpServer = config.GetSection("SmtpSettings")["SmtpServer"];
+            Globalconfig.SenderPassword = config.GetSection("EmailConfiguration")["SenderPassword"];
+            Globalconfig.Port = int.Parse(config.GetSection("EmailConfiguration")["Port"]);
+            Globalconfig.SMTPclient = config.GetSection("EmailConfiguration")["SMTPclient"];
             Globalconfig.TransactionTemplate = config.GetSection("EmailTemplates")["TransactionTemplate"];
             Globalconfig.PermissionTemplate = config.GetSection("EmailTemplates")["PermissionTemplate"];
-            Globalconfig.SenderPassword = config.GetSection("EmailConfiguration")["SenderPassword"];
             Globalconfig.logfilepath = config.GetSection("LogfilePath")["logfilepath"];
             Globalconfig.repodatabasename = config.GetSection("RepGenDatabaseConfiguration")["repodatabasename"];
             Globalconfig.reportgeneratorpath = config.GetSection("RepoGenPath")["reportgeneratorpath"];
             Globalconfig.PdfFullPath = config.GetSection("AppSettings")["PdfFullPath"];
+            Globalconfig.databasename = config.GetSection("DatabaseConfiguration")["databasename"];
+            Globalconfig.ExcelTemplate = config.GetSection("EmailTemplates")["ExcelTemplate"];
+            Globalconfig.AttachedFilePath = config.GetSection("PDFfilePath")["AttachedFilePath"];
+            Globalconfig.AttachedEXFilePath = config.GetSection("EXCELfilePath")["AttachedEXFilePath"];
 
             Log.Logger = new LoggerConfiguration()
                 .WriteTo.File(Globalconfig.logfilepath, rollingInterval: RollingInterval.Day)
