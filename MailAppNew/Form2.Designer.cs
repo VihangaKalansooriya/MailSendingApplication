@@ -39,17 +39,12 @@
             RB_02 = new RadioButton();
             txt_Search = new TextBox();
             LBL_copyright = new Label();
-            LBL_Version = new Label();
             btn_search = new Button();
-            pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             dataGridView1 = new DataGridView();
             label2 = new Label();
-            status = new Label();
-            LBL_database = new Label();
-            LBL_Server = new Label();
-            label3 = new Label();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            button1 = new Button();
+            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -57,9 +52,10 @@
             // btn_SelectAll
             // 
             btn_SelectAll.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_SelectAll.Location = new Point(68, 421);
+            btn_SelectAll.Location = new Point(78, 561);
+            btn_SelectAll.Margin = new Padding(3, 4, 3, 4);
             btn_SelectAll.Name = "btn_SelectAll";
-            btn_SelectAll.Size = new Size(128, 30);
+            btn_SelectAll.Size = new Size(146, 40);
             btn_SelectAll.TabIndex = 1;
             btn_SelectAll.Text = "Select All";
             btn_SelectAll.UseVisualStyleBackColor = true;
@@ -68,9 +64,10 @@
             // btn_DeselectAll
             // 
             btn_DeselectAll.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_DeselectAll.Location = new Point(272, 421);
+            btn_DeselectAll.Location = new Point(311, 561);
+            btn_DeselectAll.Margin = new Padding(3, 4, 3, 4);
             btn_DeselectAll.Name = "btn_DeselectAll";
-            btn_DeselectAll.Size = new Size(128, 30);
+            btn_DeselectAll.Size = new Size(146, 40);
             btn_DeselectAll.TabIndex = 2;
             btn_DeselectAll.Text = "Deselect All";
             btn_DeselectAll.UseVisualStyleBackColor = true;
@@ -79,9 +76,10 @@
             // btn_Refresh
             // 
             btn_Refresh.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_Refresh.Location = new Point(484, 421);
+            btn_Refresh.Location = new Point(553, 561);
+            btn_Refresh.Margin = new Padding(3, 4, 3, 4);
             btn_Refresh.Name = "btn_Refresh";
-            btn_Refresh.Size = new Size(128, 30);
+            btn_Refresh.Size = new Size(146, 40);
             btn_Refresh.TabIndex = 3;
             btn_Refresh.Text = "Refresh";
             btn_Refresh.UseVisualStyleBackColor = true;
@@ -90,9 +88,10 @@
             // btn_Send
             // 
             btn_Send.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_Send.Location = new Point(695, 421);
+            btn_Send.Location = new Point(794, 561);
+            btn_Send.Margin = new Padding(3, 4, 3, 4);
             btn_Send.Name = "btn_Send";
-            btn_Send.Size = new Size(128, 30);
+            btn_Send.Size = new Size(146, 40);
             btn_Send.TabIndex = 4;
             btn_Send.Text = "Send";
             btn_Send.UseVisualStyleBackColor = true;
@@ -105,10 +104,10 @@
             dateTimePicker1.CustomFormat = "yyyy-MM-dd";
             dateTimePicker1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.Location = new Point(86, 119);
-            dateTimePicker1.Margin = new Padding(5);
+            dateTimePicker1.Location = new Point(98, 159);
+            dateTimePicker1.Margin = new Padding(6, 7, 6, 7);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(111, 25);
+            dateTimePicker1.Size = new Size(126, 29);
             dateTimePicker1.TabIndex = 13;
             dateTimePicker1.Value = new DateTime(2024, 3, 20, 0, 0, 0, 0);
             dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged_1;
@@ -117,9 +116,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(40, 121);
+            label1.Location = new Point(46, 161);
             label1.Name = "label1";
-            label1.Size = new Size(45, 17);
+            label1.Size = new Size(58, 23);
             label1.TabIndex = 6;
             label1.Text = "Date :";
             // 
@@ -128,9 +127,10 @@
             RB_01.AutoSize = true;
             RB_01.Cursor = Cursors.Hand;
             RB_01.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            RB_01.Location = new Point(239, 121);
+            RB_01.Location = new Point(273, 161);
+            RB_01.Margin = new Padding(3, 4, 3, 4);
             RB_01.Name = "RB_01";
-            RB_01.Size = new Size(56, 21);
+            RB_01.Size = new Size(71, 27);
             RB_01.TabIndex = 7;
             RB_01.TabStop = true;
             RB_01.Text = "Send";
@@ -142,9 +142,10 @@
             RB_02.AutoSize = true;
             RB_02.Cursor = Cursors.Hand;
             RB_02.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            RB_02.Location = new Point(309, 122);
+            RB_02.Location = new Point(353, 163);
+            RB_02.Margin = new Padding(3, 4, 3, 4);
             RB_02.Name = "RB_02";
-            RB_02.Size = new Size(72, 21);
+            RB_02.Size = new Size(90, 27);
             RB_02.TabIndex = 8;
             RB_02.TabStop = true;
             RB_02.Text = "Unsend";
@@ -155,9 +156,10 @@
             // 
             txt_Search.BorderStyle = BorderStyle.None;
             txt_Search.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            txt_Search.Location = new Point(535, 123);
+            txt_Search.Location = new Point(611, 164);
+            txt_Search.Margin = new Padding(3, 4, 3, 4);
             txt_Search.Name = "txt_Search";
-            txt_Search.Size = new Size(280, 17);
+            txt_Search.Size = new Size(320, 21);
             txt_Search.TabIndex = 9;
             // 
             // LBL_copyright
@@ -165,21 +167,11 @@
             LBL_copyright.AutoSize = true;
             LBL_copyright.FlatStyle = FlatStyle.Flat;
             LBL_copyright.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LBL_copyright.Location = new Point(0, 472);
+            LBL_copyright.Location = new Point(827, 634);
             LBL_copyright.Name = "LBL_copyright";
-            LBL_copyright.Size = new Size(152, 17);
+            LBL_copyright.Size = new Size(199, 23);
             LBL_copyright.TabIndex = 14;
             LBL_copyright.Text = "© 24x7 Retail Solutions";
-            // 
-            // LBL_Version
-            // 
-            LBL_Version.AutoSize = true;
-            LBL_Version.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LBL_Version.Location = new Point(844, 472);
-            LBL_Version.Name = "LBL_Version";
-            LBL_Version.Size = new Size(50, 17);
-            LBL_Version.TabIndex = 15;
-            LBL_Version.Text = "V 1.0.0";
             // 
             // btn_search
             // 
@@ -189,29 +181,21 @@
             btn_search.Cursor = Cursors.Hand;
             btn_search.FlatStyle = FlatStyle.Flat;
             btn_search.ForeColor = Color.Transparent;
-            btn_search.Location = new Point(817, 122);
+            btn_search.Location = new Point(934, 163);
+            btn_search.Margin = new Padding(3, 4, 3, 4);
             btn_search.Name = "btn_search";
-            btn_search.Size = new Size(25, 18);
+            btn_search.Size = new Size(29, 24);
             btn_search.TabIndex = 18;
             btn_search.UseVisualStyleBackColor = false;
             btn_search.Click += btn_search_Click;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(340, -6);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(215, 118);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 19;
-            pictureBox1.TabStop = false;
-            // 
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(519, 106);
+            pictureBox2.Location = new Point(593, 141);
+            pictureBox2.Margin = new Padding(3, 4, 3, 4);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(331, 49);
+            pictureBox2.Size = new Size(378, 65);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 20;
             pictureBox2.TabStop = false;
@@ -221,82 +205,55 @@
             dataGridView1.BackgroundColor = Color.White;
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(34, 152);
+            dataGridView1.Location = new Point(39, 203);
             dataGridView1.Margin = new Padding(0);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(829, 258);
+            dataGridView1.Size = new Size(947, 344);
             dataGridView1.TabIndex = 0;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(410, 122);
+            label2.Location = new Point(469, 163);
             label2.Name = "label2";
-            label2.Size = new Size(101, 17);
+            label2.Size = new Size(131, 23);
             label2.TabIndex = 21;
             label2.Text = "Receiver Email:";
-            label2.Click += label2_Click;
             // 
-            // status
+            // button1
             // 
-            status.AutoSize = true;
-            status.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            status.ForeColor = Color.Green;
-            status.Location = new Point(738, 471);
-            status.Name = "status";
-            status.Size = new Size(73, 17);
-            status.TabIndex = 22;
-            status.Text = "Connected";
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.Location = new Point(0, 1);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 78);
+            button1.TabIndex = 26;
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
-            // LBL_database
+            // label4
             // 
-            LBL_database.AutoSize = true;
-            LBL_database.Cursor = Cursors.Hand;
-            LBL_database.Font = new Font("Segoe UI Black", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            LBL_database.Location = new Point(386, 473);
-            LBL_database.Name = "LBL_database";
-            LBL_database.Size = new Size(49, 17);
-            LBL_database.TabIndex = 23;
-            LBL_database.Text = "Server";
-            LBL_database.Click += LBL_database_Click;
-            // 
-            // LBL_Server
-            // 
-            LBL_Server.AutoSize = true;
-            LBL_Server.Font = new Font("Segoe UI Black", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            LBL_Server.Location = new Point(312, 472);
-            LBL_Server.Name = "LBL_Server";
-            LBL_Server.Size = new Size(72, 17);
-            LBL_Server.TabIndex = 24;
-            LBL_Server.Text = "Server ID:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label3.Location = new Point(603, 470);
-            label3.Name = "label3";
-            label3.Size = new Size(135, 17);
-            label3.TabIndex = 25;
-            label3.Text = "Network Connection:";
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 25F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(332, 22);
+            label4.Name = "label4";
+            label4.Size = new Size(406, 57);
+            label4.TabIndex = 27;
+            label4.Text = "Transactional Email";
             // 
             // Form2
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(898, 493);
-            Controls.Add(label3);
-            Controls.Add(LBL_Server);
-            Controls.Add(LBL_database);
-            Controls.Add(status);
+            ClientSize = new Size(1026, 657);
+            Controls.Add(label4);
+            Controls.Add(button1);
             Controls.Add(dataGridView1);
             Controls.Add(label2);
-            Controls.Add(pictureBox1);
             Controls.Add(btn_search);
-            Controls.Add(LBL_Version);
             Controls.Add(LBL_copyright);
             Controls.Add(txt_Search);
             Controls.Add(RB_02);
@@ -309,12 +266,12 @@
             Controls.Add(btn_SelectAll);
             Controls.Add(pictureBox2);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Form2";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "24x7ALERT";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            Text = "Transaction Email";
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
@@ -404,15 +361,11 @@
         private RadioButton RB_02;
         private TextBox txt_Search;
         private Label LBL_copyright;
-        private Label LBL_Version;
         private Button btn_search;
-        private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private DataGridView dataGridView1;
         private Label label2;
-        private Label status;
-        private Label LBL_database;
-        private Label LBL_Server;
-        private Label label3;
+        private Button button1;
+        private Label label4;
     }
 }

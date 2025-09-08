@@ -1,6 +1,6 @@
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=mypossql.public.a9e8cba2fce4.database.windows.net,3342;Database=myPOS_DB_24x7;User Id=sqladminhng;Password=$qladm!nh^g#6473;"
+    "DefaultConnection": "Server=DESKTOP-L2D47GH;Database=myPOS_DB;User Id=pll;Password=myposadminauthentication;"
   },
   "EmailConfiguration": {
     "SenderEmail": "techsupport.02@24x7retail.com",
@@ -32,6 +32,12 @@
   },
   "EXCELfilePath": {
     "AttachedEXFilePath": "D:\\Development\\Excel\\"
+  },
+  "SMSGateway": {
+    "User": "pinkar2024",
+    "Password": "Pinkar@2024",
+    "Mask": "Pink Arcade",
+    "SMSID": "Pink Arcade"
   }
 }
 

@@ -1,6 +1,6 @@
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=mypossql.public.a9e8cba2fce4.database.windows.net,3342;Database=myPOS_DB_24x7;User Id=sqladminhng;Password=$qladm!nh^g#6473;"
+    "DefaultConnection": "Server=DESKTOP-GEJGBSI;Database=24x7_SS;User Id=pll;Password=myposadminauthentication;"
   },
   "EmailConfiguration": {
     "SenderEmail": "techsupport.02@24x7retail.com",

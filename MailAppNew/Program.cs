@@ -46,6 +46,10 @@ namespace MailAppNew
             Globalconfig.ExcelTemplate = config.GetSection("EmailTemplates")["ExcelTemplate"];
             Globalconfig.AttachedFilePath = config.GetSection("PDFfilePath")["AttachedFilePath"];
             Globalconfig.AttachedEXFilePath = config.GetSection("EXCELfilePath")["AttachedEXFilePath"];
+            Globalconfig.SMSUser = config.GetSection("SMSGateway")["User"];
+            Globalconfig.SMSPassword = config.GetSection("SMSGateway")["Password"];
+            Globalconfig.Mask = config.GetSection("SMSGateway")["Mask"];
+            Globalconfig.SMSID = config.GetSection("SMSGateway")["SMSID"];
 
             Log.Logger = new LoggerConfiguration()
                 .WriteTo.File(Globalconfig.logfilepath, rollingInterval: RollingInterval.Day)
@@ -61,10 +65,11 @@ namespace MailAppNew
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Form2 form2 = new Form2();
+                Form3 form3 = new Form3();
                 Application.Run(new Form1());
                 if (form2.IsDatabaseConnected())
                 {
-                    Application.Run(form2);
+                    Application.Run(form3);
                 }
                 else
                 {

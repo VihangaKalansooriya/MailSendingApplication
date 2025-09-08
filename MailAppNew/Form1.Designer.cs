@@ -39,9 +39,9 @@
             // 
             LBL_Copyright.AutoSize = true;
             LBL_Copyright.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LBL_Copyright.Location = new Point(429, 403);
+            LBL_Copyright.Location = new Point(490, 537);
             LBL_Copyright.Name = "LBL_Copyright";
-            LBL_Copyright.Size = new Size(152, 17);
+            LBL_Copyright.Size = new Size(199, 23);
             LBL_Copyright.TabIndex = 0;
             LBL_Copyright.Text = "© 24x7 Retail Solutions";
             // 
@@ -49,32 +49,34 @@
             // 
             LBL_Version.AutoSize = true;
             LBL_Version.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LBL_Version.Location = new Point(531, 420);
+            LBL_Version.Location = new Point(607, 560);
             LBL_Version.Name = "LBL_Version";
-            LBL_Version.Size = new Size(50, 17);
+            LBL_Version.Size = new Size(66, 23);
             LBL_Version.TabIndex = 1;
             LBL_Version.Text = "V 1.0.0";
             // 
             // mainIMG
             // 
             mainIMG.Image = (Image)resources.GetObject("mainIMG.Image");
-            mainIMG.Location = new Point(-1, -3);
+            mainIMG.Location = new Point(-1, -4);
+            mainIMG.Margin = new Padding(3, 4, 3, 4);
             mainIMG.Name = "mainIMG";
-            mainIMG.Size = new Size(587, 447);
+            mainIMG.Size = new Size(671, 596);
             mainIMG.SizeMode = PictureBoxSizeMode.Zoom;
             mainIMG.TabIndex = 2;
             mainIMG.TabStop = false;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(584, 440);
+            ClientSize = new Size(668, 587);
             ControlBox = false;
             Controls.Add(LBL_Version);
             Controls.Add(LBL_Copyright);
             Controls.Add(mainIMG);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             MdiChildrenMinimizedAnchorBottom = false;
             MinimizeBox = false;

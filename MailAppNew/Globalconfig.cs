@@ -23,6 +23,9 @@ namespace MailSendingApp
         public static string AttachedFilePath { get; set; }
         public static string AttachedEXFilePath { get; set; }
         public static string ExcelTemplate { get; set; }
-
+        public static string SMSUser { get; set; }
+        public static string SMSPassword { get; set; }
+        public static string Mask { get; set; }
+        public static string SMSID { get; set; }
     }
 }

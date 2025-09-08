@@ -23,5 +23,6 @@ namespace MailAppNew
         {
             Close();
         }
+
     }
 }

@@ -44,7 +44,7 @@ public class mailapp
             using (SqlConnection dbConnection = new SqlConnection(Globalconfig.ConnectionString))
             {
                 dbConnection.Open();
-                string query = "SELECT md.TB_LOCATION, md.TB_DATE, md.TB_TYPE, md.TB_RUNNO, md.TB_DESC, md.TB_TRTYPE, md.TB_URL, md.TB_SUBJECT, md.TB_BODY, ml.LOC_DESC, md.TB_TRAMT, sp.SM_NAME, cm.CM_FULLNAME, md.TB_TRSUP, md.TB_TRCUS FROM M_TBLMAILDETAILS md INNER JOIN M_TBLLOCATIONS ml ON md.TB_LOCATION = ml.LOC_CODE LEFT OUTER JOIN M_TBLSUPPLIER sp ON md.TB_TRSUP = sp.SM_CODE LEFT OUTER JOIN M_TBLCUSTOMER cm ON md.TB_TRCUS = cm.CM_CODE WHERE TB_ID = @ID";
+                string query = "SELECT md.TB_LOCATION, md.TB_DATE, md.TB_TYPE, md.TB_RUNNO, md.TB_DESC, md.TB_TRTYPE, md.TB_URL, md.TB_SUBJECT, md.TB_BODY, ml.LOC_DESC, md.TB_TRAMT, sp.SM_NAME, cm.CM_FULLNAME, md.TB_TRSUP, md.TB_TRCUS FROM M_TBLMAILDETAILS md INNER JOIN M_TBLLOCATIONS ml ON md.TB_LOCATION = ml.LOC_CODE LEFT OUTER JOIN M_TBLSUPPLIER sp ON md.TB_TRSUP = sp.SM_CODE LEFT OUTER JOIN M_TBLCUSTOMER cm ON md.TB_TRCUS = cm.CM_CODE WHERE TB_ID = @ID ";
 
                 using (SqlCommand command = new SqlCommand(query, dbConnection))
                 {
@@ -154,7 +154,6 @@ public class mailapp
                                     await smtpClient.SendMailAsync(mail);
                                     Logger.LogInformation($"PDF Attached:{resultString}.pdf");
                                     Console.WriteLine("Email sent with PDF attachment for ID " + id);
-                                    MessageBox.Show("Email Successfully Send!" + recipientEmail, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     UpdateStatus(id);
                                     Log.CloseAndFlush();
                                 }
