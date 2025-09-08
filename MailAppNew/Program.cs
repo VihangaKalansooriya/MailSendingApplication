@@ -46,6 +46,17 @@ namespace MailAppNew
             Globalconfig.ExcelTemplate = config.GetSection("EmailTemplates")["ExcelTemplate"];
             Globalconfig.AttachedFilePath = config.GetSection("PDFfilePath")["AttachedFilePath"];
             Globalconfig.AttachedEXFilePath = config.GetSection("EXCELfilePath")["AttachedEXFilePath"];
+            Globalconfig.SMSUser = config.GetSection("SMSGateway")["User"];
+            Globalconfig.SMSPassword = config.GetSection("SMSGateway")["Password"];
+            Globalconfig.Mask = config.GetSection("SMSGateway")["Mask"];
+            Globalconfig.SMSID = config.GetSection("SMSGateway")["SMSID"];
+            Globalconfig.Provider = config.GetSection("SmsSettings")["Provider"];
+            Globalconfig.KEY = config.GetSection("ProtectedSettings")["Form7Password"];
+            Globalconfig.EnableButton1 = bool.Parse(config.GetSection("FeatureSettings")["EnableButton1"]);
+            Globalconfig.EnableButton2 = bool.Parse(config.GetSection("FeatureSettings")["EnableButton2"]);  
+            Globalconfig.EnableButton3 = bool.Parse(config.GetSection("FeatureSettings")["EnableButton3"]);
+            Globalconfig.EnableButton4 = bool.Parse(config.GetSection("FeatureSettings")["EnableButton4"]);
+            Globalconfig.EnableButton5 = bool.Parse(config.GetSection("FeatureSettings")["EnableButton5"]);
 
             Log.Logger = new LoggerConfiguration()
                 .WriteTo.File(Globalconfig.logfilepath, rollingInterval: RollingInterval.Day)
@@ -60,16 +71,7 @@ namespace MailAppNew
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Form2 form2 = new Form2();
                 Application.Run(new Form1());
-                if (form2.IsDatabaseConnected())
-                {
-                    Application.Run(form2);
-                }
-                else
-                {
-                    MessageBox.Show("Failed! Connect to the Server Database. Please Check Your Internet Connection.", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
             catch (Exception ex)
             {

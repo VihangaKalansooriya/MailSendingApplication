@@ -1,6 +1,6 @@
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=mypossql.public.a9e8cba2fce4.database.windows.net,3342;Database=myPOS_DB_24x7;User Id=sqladminhng;Password=$qladm!nh^g#6473;"
+    "DefaultConnection": "Server=DESKTOP-L2D47GH;Database=myPOS_DB;User Id=pll;Password=myposadminauthentication;"
   },
   "EmailConfiguration": {
     "SenderEmail": "techsupport.02@24x7retail.com",
@@ -32,6 +32,25 @@
   },
   "EXCELfilePath": {
     "AttachedEXFilePath": "D:\\Development\\Excel\\"
+  },
+  "SMSGateway": {
+    "User": "MKB",
+    "Password": "Minimart@123",
+    "Mask": "mkb",
+    "SMSID": "mkb"
+  },
+  "SmsSettings": {
+    "Provider": "HutchBulkSMS"
+  },
+  "ProtectedSettings": {
+    "Form7Password": "ADMIN"
+  },
+  "FeatureSettings": {
+    "EnableButton1": true,
+    "EnableButton2": true,
+    "EnableButton3": true,
+    "EnableButton4": true,
+    "EnableButton5": true
   }
 }
 
