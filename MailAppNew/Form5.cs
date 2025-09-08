@@ -17,7 +17,12 @@ namespace MailAppNew
         public Form5()
         {
             InitializeComponent();
-            FilterData("");
+            InitializeButtonDesign();
+            dateTimePicker1.Value = DateTime.Today;
+            radioButton1.Checked = true;
+            FilterData(textBox1.Text.Trim(), DateTime.Today, 1);
+            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -29,25 +34,36 @@ namespace MailAppNew
                 FilterData(searchText);
         }
 
-        private void FilterData(string searchValue)
+        private void FilterData(string searchValue, DateTime? filterDate = null, int? statusFilter = null)
         {
             try
             {
                 using (SqlConnection connection = new SqlConnection(Globalconfig.ConnectionString))
                 {
                     connection.Open();
-                    string query = @"SELECT PS_CUSCODE,PS_LOCCODE,PS_DATE,PS_MOBILENO,PS_STATUS 
-                                    FROM U_TBLPROMOTIONSMS
-                                    WHERE PS_CUSCODE LIKE @searchValue
-                                    OR PS_MOBILENO LIKE @searchValue
-                                    OR PS_NIC LIKE @searchValue;";
+
+                    string query = @"SELECT 
+                                     ps.PS_CUSCODE, c.CM_GROUP, ps.PS_MOBILENO,ps.PS_NIC,ps.PS_BODY, ps.PS_STATUS
+                                     FROM U_TBLPROMOTIONSMS ps
+                                     LEFT JOIN M_TBLCUSTOMER c ON c.CM_CODE = ps.PS_CUSCODE
+                                     WHERE ps.PS_TYPE='B' AND (ps.PS_CUSCODE LIKE @searchValue
+                                     OR ps.PS_MOBILENO LIKE @searchValue
+                                     OR ps.PS_NIC LIKE @searchValue)";
+
+                    if (filterDate.HasValue)
+                        query += " AND CAST(PS_DATE AS DATE) = @filterDate";
+                    if (statusFilter.HasValue)
+                        query += " AND ps.PS_STATUS = @statusFilter";
 
                     using (SqlCommand cmd = new SqlCommand(query, connection))
                     {
+                        cmd.Parameters.AddWithValue("@searchValue", "%" + searchValue + "%");
+                        if (filterDate.HasValue)
+                            cmd.Parameters.AddWithValue("@filterDate", filterDate.Value.Date);
+                        if (statusFilter.HasValue)
+                            cmd.Parameters.AddWithValue("@statusFilter", statusFilter.Value);
 
                         DataTable dt = new DataTable();
-                        cmd.Parameters.AddWithValue("@searchValue", "%" + searchValue + "%");
-
                         using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                         {
                             adapter.Fill(dt);
@@ -56,46 +72,51 @@ namespace MailAppNew
                         dataGridView1.AutoGenerateColumns = true;
                         dataGridView1.DataSource = dt;
                         dataGridView1.ReadOnly = true;
-                        //foreach (DataGridViewColumn col in dataGridView1.Columns)
-                        //{
-                        //    col.ReadOnly = col.Name != "Select"; // Only "Select" column editable
-                        //}
+                        dataGridView1.AllowUserToAddRows = false;
 
-                        //if (dataGridView1.Columns["Select"] == null)
-                        //{
-                        //    DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn
-                        //    {
-                        //        HeaderText = "Select",
-                        //        Name = "Select",
-                        //        Width = 65
-                        //    };
-                        //    dataGridView1.Columns.Add(checkBoxColumn);
-                        //}
+                        // Styling
+                        DataGridViewCellStyle headerStyle = new DataGridViewCellStyle(dataGridView1.ColumnHeadersDefaultCellStyle)
+                        {
+                            Font = new Font("Arial", 8, FontStyle.Bold),
+                            Alignment = DataGridViewContentAlignment.MiddleCenter
+                        };
+                        dataGridView1.ColumnHeadersDefaultCellStyle = headerStyle;
+
+                        // Column headers & widths
+                        if (dataGridView1.Columns.Contains("PS_CUSCODE"))
+                        {
+                            dataGridView1.Columns["PS_CUSCODE"].HeaderText = "Customer Code";
+                            dataGridView1.Columns["PS_CUSCODE"].Width = 70;
+                        }
+                        if (dataGridView1.Columns.Contains("CM_GROUP"))
+                        {
+                            dataGridView1.Columns["CM_GROUP"].HeaderText = "Customer Group";
+                            dataGridView1.Columns["CM_GROUP"].Width = 70;
+                        }
+                        if (dataGridView1.Columns.Contains("PS_MOBILENO"))
+                        {
+                            dataGridView1.Columns["PS_MOBILENO"].HeaderText = "Mobile Number";
+                            dataGridView1.Columns["PS_MOBILENO"].Width = 75;
+                        }
+                        if (dataGridView1.Columns.Contains("PS_NIC"))
+                        {
+                            dataGridView1.Columns["PS_NIC"].HeaderText = "NIC";
+                            dataGridView1.Columns["PS_NIC"].Width = 70;
+                        }
+                        if (dataGridView1.Columns.Contains("PS_BODY"))
+                        {
+                            dataGridView1.Columns["PS_BODY"].HeaderText = "Massage";
+                            dataGridView1.Columns["PS_BODY"].Width = 170;
+                        }
+                        if (dataGridView1.Columns.Contains("PS_STATUS"))
+                        {
+                            dataGridView1.Columns["PS_STATUS"].HeaderText = "Status";
+                            dataGridView1.Columns["PS_STATUS"].Width = 45;
+                        }
                     }
                 }
 
-                // Styling
-                DataGridViewCellStyle headerStyle = new DataGridViewCellStyle(dataGridView1.ColumnHeadersDefaultCellStyle)
-                {
-                    Font = new System.Drawing.Font("Arial", 8, FontStyle.Bold),
-                    Alignment = DataGridViewContentAlignment.MiddleCenter
-                };
-                dataGridView1.ColumnHeadersDefaultCellStyle = headerStyle;
-
-                dataGridView1.AllowUserToAddRows = false;
-
-                // Column headers & widths
-                dataGridView1.Columns["PS_CUSCODE"].HeaderText = "Customer Code";
-                dataGridView1.Columns["PS_LOCCODE"].HeaderText = "Location Code";
-                dataGridView1.Columns["PS_DATE"].HeaderText = "Date";
-                dataGridView1.Columns["PS_MOBILENO"].HeaderText = "Mobile Number";
-                dataGridView1.Columns["PS_STATUS"].HeaderText = "Status";
-
-                dataGridView1.Columns["PS_CUSCODE"].Width = 75;
-                dataGridView1.Columns["PS_LOCCODE"].Width = 75;
-                dataGridView1.Columns["PS_DATE"].Width = 240;
-                dataGridView1.Columns["PS_MOBILENO"].Width = 90;
-                dataGridView1.Columns["PS_STATUS"].Width = 90;
+                // Keep your existing styling code here
             }
             catch (Exception ex)
             {
@@ -108,6 +129,37 @@ namespace MailAppNew
             Form3 form3 = new Form3();
             form3.Show();
             this.Close();
+        }
+        private void dateTimePicker1_ValueChanged_1(object sender, EventArgs e)
+        {
+            string searchText = textBox1.Text.Trim(); // Keep existing search text
+            DateTime selectedDate = dateTimePicker1.Value.Date;
+
+            // Call FilterData with the selected date
+            FilterData(searchText, selectedDate);
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            // Filter in real-time when date changes
+            string searchText = textBox1.Text.Trim();
+            FilterData(searchText, dateTimePicker1.Value.Date);
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked)
+            {
+                FilterData(textBox1.Text.Trim(), dateTimePicker1.Value.Date, 1); // PS_STATUS = 1
+            }
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton2.Checked)
+            {
+                FilterData(textBox1.Text.Trim(), dateTimePicker1.Value.Date, 0); // PS_STATUS = 0
+            }
         }
     }
 }

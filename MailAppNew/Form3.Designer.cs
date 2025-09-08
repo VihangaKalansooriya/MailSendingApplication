@@ -41,7 +41,13 @@
             label1 = new Label();
             LBL_database = new Label();
             label2 = new Label();
+            pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pictureBox4 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -62,7 +68,7 @@
             button2.Name = "button2";
             button2.Size = new Size(375, 57);
             button2.TabIndex = 1;
-            button2.Text = "Annivasary SMS";
+            button2.Text = "Anniversary SMS";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
@@ -75,6 +81,7 @@
             button3.TabIndex = 2;
             button3.Text = "Birthday SMS";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -115,14 +122,14 @@
             LBL_Version.Name = "LBL_Version";
             LBL_Version.Size = new Size(66, 23);
             LBL_Version.TabIndex = 6;
-            LBL_Version.Text = "V 1.0.0";
+            LBL_Version.Text = "V 1.1.0";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(283, 12);
+            pictureBox1.Location = new Point(104, -99);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(265, 122);
+            pictureBox1.Size = new Size(608, 361);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 7;
             pictureBox1.TabStop = false;
@@ -171,16 +178,50 @@
             label2.TabIndex = 11;
             label2.Text = "Server ID :";
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(652, 12);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(150, 150);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 12;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(81, 12);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(66, 59);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 13;
+            pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(12, 12);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(72, 59);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 14;
+            pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
+            // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(816, 515);
+            Controls.Add(pictureBox3);
+            Controls.Add(pictureBox4);
+            Controls.Add(pictureBox2);
             Controls.Add(label2);
             Controls.Add(LBL_database);
             Controls.Add(label1);
             Controls.Add(status);
-            Controls.Add(pictureBox1);
             Controls.Add(LBL_Version);
             Controls.Add(LBL_Copyright);
             Controls.Add(button5);
@@ -188,6 +229,7 @@
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
+            Controls.Add(pictureBox1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
@@ -195,6 +237,9 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Home";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -213,5 +258,8 @@
         private Label label1;
         private Label LBL_database;
         private Label label2;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox4;
     }
 }

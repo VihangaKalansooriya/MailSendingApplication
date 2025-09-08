@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nqO1W7o/Y/w=",
+  "dgSpecHash": "4ZgW6Yk/irg=",
   "success": true,
-  "projectFilePath": "C:\\Development\\MailAppNew\\MailAppNew\\MailAppNew.csproj",
+  "projectFilePath": "C:\\Development\\UI\\24x7Alert\\MailAppNew\\MailAppNew.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\closedxml\\0.104.2\\closedxml.0.104.2.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\closedxml.parser\\1.2.0\\closedxml.parser.1.2.0.nupkg.sha512",

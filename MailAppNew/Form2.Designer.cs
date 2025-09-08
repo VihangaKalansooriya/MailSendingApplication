@@ -45,8 +45,10 @@
             label2 = new Label();
             button1 = new Button();
             label4 = new Label();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // btn_SelectAll
@@ -243,12 +245,23 @@
             label4.TabIndex = 27;
             label4.Text = "Transactional Email";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(809, 22);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(90, 82);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 28;
+            pictureBox1.TabStop = false;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1026, 657);
+            Controls.Add(pictureBox1);
             Controls.Add(label4);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
@@ -274,6 +287,7 @@
             Text = "Transaction Email";
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -367,5 +381,6 @@
         private Label label2;
         private Button button1;
         private Label label4;
+        private PictureBox pictureBox1;
     }
 }

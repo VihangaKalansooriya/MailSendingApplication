@@ -27,5 +27,12 @@ namespace MailSendingApp
         public static string SMSPassword { get; set; }
         public static string Mask { get; set; }
         public static string SMSID { get; set; }
+        public static string Provider { get; set; }
+        public static string KEY { get; set; }
+        public static bool EnableButton1 { get; set; }
+        public static bool EnableButton2 { get; set; }
+        public static bool EnableButton3 { get; set; }
+        public static bool EnableButton4 { get; set; }
+        public static bool EnableButton5 { get; set; }
     }
 }

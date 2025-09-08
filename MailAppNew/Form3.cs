@@ -20,6 +20,13 @@ namespace MailAppNew
             InitializeComponent();
             InitializeInternetConnectionTimer();
             this.Text = "Home";
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
+            button1.Enabled = Globalconfig.EnableButton1;
+            button2.Enabled = Globalconfig.EnableButton2;
+            button3.Enabled = Globalconfig.EnableButton3;
+            button4.Enabled = Globalconfig.EnableButton4;
+            button5.Enabled = Globalconfig.EnableButton5;
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -120,6 +127,42 @@ namespace MailAppNew
         {
             Form5 form5 = new Form5();
             form5.Show();
+            this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form6 form6 = new Form6();
+            form6.Show();
+            this.Hide();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            // Prompt for password
+            string inputPassword = Microsoft.VisualBasic.Interaction.InputBox(
+                "Enter Password to access Settings:",
+                "");
+
+            // Get stored password from appsettings.json
+            string correctPassword = Globalconfig.KEY;
+
+            if (inputPassword == correctPassword)
+            {
+                Form7 form7 = new Form7();
+                form7.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Incorrect password. Access denied.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
             this.Hide();
         }
     }

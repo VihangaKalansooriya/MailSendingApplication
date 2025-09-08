@@ -34,10 +34,23 @@
     "AttachedEXFilePath": "D:\\Development\\Excel\\"
   },
   "SMSGateway": {
-    "User": "pinkar2024",
-    "Password": "Pinkar@2024",
-    "Mask": "Pink Arcade",
-    "SMSID": "Pink Arcade"
+    "User": "MKB",
+    "Password": "Minimart@123",
+    "Mask": "mkb",
+    "SMSID": "mkb"
+  },
+  "SmsSettings": {
+    "Provider": "HutchBulkSMS"
+  },
+  "ProtectedSettings": {
+    "Form7Password": "ADMIN"
+  },
+  "FeatureSettings": {
+    "EnableButton1": true,
+    "EnableButton2": true,
+    "EnableButton3": true,
+    "EnableButton4": true,
+    "EnableButton5": true
   }
 }
 

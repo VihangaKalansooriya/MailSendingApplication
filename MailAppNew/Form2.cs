@@ -16,10 +16,8 @@ namespace MailAppNew
 {
     public partial class Form2 : Form
     {
-        private string connectionString = Globalconfig.ConnectionString;
-        private Label internetStatus;
+        
         private mailapp mailAppInstance;
-        private System.Windows.Forms.Timer timer;
 
         public Form2()
         {
@@ -32,86 +30,6 @@ namespace MailAppNew
             FilterData();
         }
  
-        private void LoadDataIntoDataGridView()
-        {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(Globalconfig.ConnectionString))
-                {
-                    connection.Open();
-
-                    string query = "SELECT TB_ID, TB_RECEIVERMAIL, TB_LOCATION, TB_DESC, TB_RUNNO FROM M_TBLMAILDETAILS WHERE TB_STATUS=1";
-
-                    using (SqlCommand cmd = new SqlCommand(query, connection))
-                    {
-                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
-                        {
-                            DataTable dataTable = new DataTable();
-                            adapter.Fill(dataTable);
-                            dataGridView1.DataSource = dataTable;
-                            DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn
-                            {
-                                HeaderText = "Select",
-                                Name = "Select",
-                            };
-
-                            foreach (DataGridViewColumn column in dataGridView1.Columns)
-                            {
-                                if (column.Name != "Select")
-                                {
-                                    column.ReadOnly = true;
-                                }
-                            }
-                        }
-                    }
-                }
-                if (dataGridView1.Columns["Select"] == null)
-                {
-                    ConfigureColumnHeadersAndWidths();
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger.LogError("Error in :", ex);
-            }
-        }
-
-        private void ConfigureColumnHeadersAndWidths()
-        {
-            // Add checkbox column
-            DataGridViewCheckBoxColumn checkBoxColumn = new DataGridViewCheckBoxColumn
-            {
-                HeaderText = "Select",
-                Name = "Select",
-            };
-
-            dataGridView1.Columns.Insert(5, checkBoxColumn);
-
-            // Set header style
-            DataGridViewCellStyle headerStyle = new DataGridViewCellStyle(dataGridView1.ColumnHeadersDefaultCellStyle);
-            headerStyle.Font = new Font("Arial", 8, FontStyle.Bold);
-            dataGridView1.ColumnHeadersDefaultCellStyle = headerStyle;
-
-            // Set column headers alignment
-            dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-            // Prevent adding rows directly
-            dataGridView1.AllowUserToAddRows = false;
-
-            // Set column headers and widths
-            dataGridView1.Columns["TB_ID"].HeaderText = "ID";
-            dataGridView1.Columns["TB_RECEIVERMAIL"].HeaderText = "Receiver Email";
-            dataGridView1.Columns["TB_LOCATION"].HeaderText = "Location";
-            dataGridView1.Columns["TB_DESC"].HeaderText = "Type";
-            dataGridView1.Columns["TB_RUNNO"].HeaderText = "Report Number";
-
-            dataGridView1.Columns["TB_ID"].Width = 50;
-            dataGridView1.Columns["TB_RECEIVERMAIL"].Width = 200;
-            dataGridView1.Columns["TB_LOCATION"].Width = 100;
-            dataGridView1.Columns["TB_DESC"].Width = 200;
-            dataGridView1.Columns["TB_RUNNO"].Width = 120;
-        }
-
         private void btn_SelectAll_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -247,49 +165,6 @@ namespace MailAppNew
                 return false;
             }
         }
-
-        public bool IsInternetConnected()
-        {
-            try
-            {
-                using (var client = new System.Net.WebClient())
-                {
-                    using (client.OpenRead("http://clients3.google.com/generate_204"))
-                    {
-                        return true;
-                    }
-                }
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        private string GetServerInfoFromConnectionString(string connectionString)
-        {
-            // Split the connection string by semicolons
-            string[] parts = connectionString.Split(';');
-
-            // Search for the part containing server information
-            foreach (string part in parts)
-            {
-                // Look for "Data Source=" or "Server=" part
-                if (part.StartsWith("Data Source=") || part.StartsWith("Server="))
-                {
-                    // Extract the server information
-                    string[] serverInfoParts = part.Split('=');
-                    if (serverInfoParts.Length == 2)
-                    {
-                        return serverInfoParts[1]; // Return the server information
-                    }
-                }
-            }
-
-            return "Server information not found in connection string";
-        }
-
-
 
         private void FilterData()
         {

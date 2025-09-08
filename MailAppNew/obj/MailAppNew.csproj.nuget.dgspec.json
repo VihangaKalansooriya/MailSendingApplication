@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Development\\MailAppNew\\MailAppNew\\MailAppNew.csproj": {}
+    "C:\\Development\\UI\\24x7Alert\\MailAppNew\\MailAppNew.csproj": {}
   },
   "projects": {
-    "C:\\Development\\MailAppNew\\MailAppNew\\MailAppNew.csproj": {
+    "C:\\Development\\UI\\24x7Alert\\MailAppNew\\MailAppNew.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Development\\MailAppNew\\MailAppNew\\MailAppNew.csproj",
+        "projectUniqueName": "C:\\Development\\UI\\24x7Alert\\MailAppNew\\MailAppNew.csproj",
         "projectName": "MailAppNew",
-        "projectPath": "C:\\Development\\MailAppNew\\MailAppNew\\MailAppNew.csproj",
+        "projectPath": "C:\\Development\\UI\\24x7Alert\\MailAppNew\\MailAppNew.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Development\\MailAppNew\\MailAppNew\\obj\\",
+        "outputPath": "C:\\Development\\UI\\24x7Alert\\MailAppNew\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
