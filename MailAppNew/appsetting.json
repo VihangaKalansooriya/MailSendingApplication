@@ -1,10 +1,10 @@
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=DESKTOP-L2D47GH;Database=myPOS_DB;User Id=pll;Password=myposadminauthentication;"
+    "DefaultConnection": "Server=;Database=;User Id=;Password=;"
   },
   "EmailConfiguration": {
-    "SenderEmail": "techsupport.02@24x7retail.com",
-    "SenderPassword": "Vihanga@1997",
+    "SenderEmail": "",
+    "SenderPassword": "",
     "SMTPclient": "smtp.office365.com",
     "Port": "587"
   },
@@ -34,8 +34,8 @@
     "AttachedEXFilePath": "D:\\Development\\Excel\\"
   },
   "SMSGateway": {
-    "User": "MKB",
-    "Password": "Minimart@123",
+    "User": "",
+    "Password": "",
     "Mask": "mkb",
     "SMSID": "mkb"
   },
